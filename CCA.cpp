@@ -9,12 +9,6 @@
 using namespace std;
 
 
-/** Read the JPEG image at `filename` as an array of bytes.
-  Data is returned through the out pointers, while the return
-  value indicates success or failure.
-  NOTE: 1) if image is RGB, then the bytes are concatenated in R-G-B order
-        2) `image` should be freed by the user
- */
 static inline int
 read_JPEG_file(char *filename,
                int *width, int *height, int *channels, unsigned char *(image[]))
@@ -52,9 +46,6 @@ read_JPEG_file(char *filename,
 }
 
 
-/** Writes the image in the specified file.
-  NOTE: works with Grayscale or RGB modes only (based on number of channels)
- */
 static inline void
 write_JPEG_file(char *filename, int width, int height, int channels,
                 unsigned char image[], int quality)
