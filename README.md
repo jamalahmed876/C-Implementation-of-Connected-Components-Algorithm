@@ -16,3 +16,12 @@ g++ -O3 CCA.cpp -o CCA -ljpeg -fpermissive
 ```bash
 ./CCA exampleinput.jpg exampleoutput.jpg
 ```
+
+#### Requires jpeg library:
+```bash
+sudo yum install openjpeg-devel
+```
+#### or
+```bash
+sudo apt-get install openjpeg-devel
+```
