@@ -1,1 +1,1 @@
-# C-Implementation-of-Connected-Components-Algorithm
+# C++ Implementation of Connected Components Algorithm
