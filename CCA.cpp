@@ -104,6 +104,21 @@ int main(int argc, char *argv[])
   unsigned char *image;
   int width, height, channels;
   read_JPEG_file(argv[1], &width, &height, &channels, &image);
+
+  if (channels == 3) {
+    unsigned char *image2;
+    image2 = malloc(width * height * channels * sizeof(image));
+    channels = 1;
+    for (int i=0; i<height; i++) {
+      for (int j=0; j<width; j++) {
+        image2[i*width+j] = (image[i*width*3+j*3] + image[i*width*3+j*3+1] + image[i*width*3+j*3+2])/3;
+      }
+    }
+    free(image);
+    image = image2;
+    write_JPEG_file("grayscale.jpg", width, height, channels, image, 95);
+  }
+
   int threshold = 0;
   int histogram[256];
 
